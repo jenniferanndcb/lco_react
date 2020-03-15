@@ -1,5 +1,7 @@
 import React from "react";
 
+const postcodesAPI = "https://api.postcodes.io/postcodes";
+
 export default class PostcodeInput extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +17,9 @@ export default class PostcodeInput extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
+    fetch(postcodesAPI + "/" + this.state.value)
+      .then(res => res.json())
+      .then(data => console.log(data));
   }
 
   render() {
