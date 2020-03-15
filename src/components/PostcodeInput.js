@@ -19,7 +19,7 @@ export default class PostcodeInput extends React.Component {
     e.preventDefault();
     fetch(postcodesAPI + "/" + this.state.value)
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => console.log(data.result.admin_district));
   }
 
   render() {
